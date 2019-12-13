@@ -1,0 +1,34 @@
+## Application name.
+spring.application.name: user-service
+
+## Server HTTP port.
+server.port: 8030
+
+## active profile (get from maven build --> check pom.xml)
+spring.profiles:
+  active: "@active.profile@"
+  include:
+    - eureka
+
+## Enabel Admin server security
+#management.security.enabled: false
+
+#security.ignored: /**
+
+## DB config
+spring:
+  jpa:
+    show-sql: true
+    generate-ddl: true
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        format_sql: true
+        generate_statistics: true
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+  datasource:
+    driver-class-name: org.postgresql.Driver 
+    url: jdbc:postgresql://51.77.201.111:5432/spark-user
+    username: jihed.kaouech
+    password: BigC0se1l@P0stgres

@@ -1,0 +1,139 @@
+<!-- <div class="col-md-12 col-lg-12" style="width:500px; height: 220px">    
+  <nb-card >
+    <nb-card-body>
+        <form class="form-group" (ngSubmit)="creerDossier()" autocomplete="off" #fyForm = ngForm>
+                   
+    <div class="row full-name-inputs label">
+      <div class="input-group col-md-6   input-group-sm"> 
+      <label class="text-label" i18n="@@startdate" >Date de début</label></div>
+        <div class="input-group col-md-6   input-group-sm">
+         <label class="text-label" >Date de fin</label> 
+          </div>
+     </div>      
+    <div class="row full-name-inputs">
+    <div class="input-group col-md-6   input-group-sm">
+      <input name="startdate" #startdate [(ngModel)]="exercice.sdate" class="form-control" [nbDatepicker]="sdatepicker" disabled >
+      <nb-datepicker #sdatepicker ></nb-datepicker>
+    </div>
+    <div class="input-group col-md-6   input-group-sm">
+      <input name="endtdate" #endtdate [(ngModel)]="exercice.edate" class="form-control" [nbDatepicker]="edatepicker" disabled >
+      <nb-datepicker #edatepicker ></nb-datepicker>
+    </div>
+    </div>
+    <div class="row full-name-inputs label">
+      <div class="input-group col-md-5   input-group-sm"> 
+      <label class="text-label">Entreprise</label></div>
+        <div class="input-group col-md-7  input-group-sm">
+         <label class="text-label" >Liste des Journaux </label> 
+          </div>
+     </div>  
+     <div class="row full-name-inputs label">
+       <div class="input-group col-md-5   input-group-sm"> 
+        <input name="enterprise" #enterprise [(ngModel)]="ent.socialReason" class="form-control" disabled >
+      </div>
+         <div class="input-group col-md-7  input-group-sm">
+            <ng-select 
+            placeholder="Choisir..."
+            [items]="journals"
+            bindLabel="jname"
+            name="journal"
+            required
+            >
+       </ng-select>
+        </div>
+      </div>  
+    </form>
+    </nb-card-body>
+  </nb-card> -->
+
+  <div class="col-md-12  " style="width:950px; height: 320px">
+    <nb-card>
+      <nb-card-body>
+       
+  
+          <div class="row full-name-inputs label">
+  
+            <div class="input-group col-md-5   input-group-sm">
+              <label class="text-label" for="socialReason">societé</label>
+            </div>
+  
+            
+          </div>
+          <div class="row full-name-inputs">
+            <div class="input-group col-md-5  input-group-sm">
+              <input autofocus type="text" name="societé" #socialReason 
+              maxlength="50" class="form-control" required i18n="@@socialReason" [(ngModel)]="societe" disabled>
+            </div>
+  
+            
+          </div>
+          <br>
+          <div class="row full-name-inputs label">
+            <div class="input-group col-md-3   input-group-sm">
+              <label for="matriCode">Désignation</label>
+            </div>
+  
+            <div class="input-group col-md-4   input-group-sm">
+              <label for="tradeCode"> Editeur</label>
+            </div>
+            <div class="input-group col-md-5 input-group-sm">
+              <label for="jurform" i18n="@@jurform"> Année </label>
+            </div>
+          </div>
+  
+          <div class="row full-name-inputs">
+  
+  
+              <div class="input-group col-md-3  input-group-sm">
+                  <input type="text" name="designation" [(ngModel)]="exercice.designation " class="form-control" disabled>
+                </div>
+  
+                <div class="input-group col-md-4   input-group-sm">
+                    <input type="text" name="editeur" [(ngModel)]="exercice.editeur" class="form-control" disabled>
+                  </div>
+  
+            <div class="input-group col-md-3   input-group-sm">
+              <input type="text"  name="annee" [(ngModel)]="exercice.annee"
+                class="form-control" required disabled/>
+            </div> 
+          </div>
+  <br>
+  
+          <div class="row full-name-inputs label">
+            <div class="input-group col-md-5  input-group-sm">
+              <label for="nature" i18n="@@nature">   Date Début    </label>
+            </div>
+  
+            <div class="input-group col-md-5   input-group-sm">
+                <label for="nature" i18n="@@nature">   Date  Fin    </label>
+              </div>
+  
+          </div>
+               
+         
+      <div class="row full-name-inputs label">
+          <div class="input-group col-md-6 col-lg-5 input-group-sm">
+              <input nbInput placeholder="Date  Début  " class="form-control" [nbDatepicker]="dateDebut"
+                   [(ngModel)]="exercice.dateDebut" name="dateDebut" disabled/>
+            <nb-datepicker #dateDebut></nb-datepicker>
+          </div>
+  
+          <div class="input-group col-md-6 col-lg-5 input-group-sm">
+              <input nbInput placeholder="Date  Fin  " class="form-control" [nbDatepicker]="dateFin"
+                   [(ngModel)]="exercice.dateFin" name="dateFin" disabled/>
+            <nb-datepicker #dateFin></nb-datepicker>
+          </div>
+       </div>   
+         
+  <br>
+    
+  
+      
+  
+      </nb-card-body>
+    </nb-card>
+    <!-- </nb-tab>
+  </nb-tabset> -->
+  
+  
+  </div>

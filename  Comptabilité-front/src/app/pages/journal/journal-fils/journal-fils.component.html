@@ -1,0 +1,51 @@
+<nb-card>
+    <nb-card-body>
+<ngx-titre-journal></ngx-titre-journal>
+</nb-card-body>
+</nb-card>
+<nb-card  >  
+    <nb-card-header class="text-center" i18n="@@listFolder"> 
+      <h4>   
+     Journal:   {{journalParent.designation}}
+      </h4>
+    </nb-card-header> 
+<nb-card>
+    <div class="input-group col-md-12">
+   
+   <nb-card-body class="example-items-rows">
+     
+    <button nbButton outline status="info"    (click)="onClick('1')">Jan({{exercice.annee}})</button>
+    <button nbButton outline status="info" class="btn-small"(click)="onClick('2')" >Fév({{exercice.annee}})</button>
+    <button nbButton outline status="info"class="btn-small" (click)="onClick('3')" >Mars({{exercice.annee}})</button>
+    <button nbButton outline status="info" size="tiny"(click)="onClick('4')" >Avr({{exercice.annee}})</button>
+    <button nbButton outline status="info"size="tiny" (click)="onClick('5')" >Mai({{exercice.annee}})</button>
+    <button nbButton outline status="info"size="tiny" (click)="onClick('6')" >Juin({{exercice.annee}})</button>
+    <button nbButton outline status="info"size="tiny" (click)="onClick('7')" >juil({{exercice.annee}})</button>
+    <button nbButton outline status="info"size="tiny"(click)="onClick('8')">Août({{exercice.annee}})</button>
+    <button nbButton outline status="info"size="tiny" (click)="onClick('9')">Sep({{exercice.annee}})</button>
+    <button nbButton outline status="info"size="tiny" (click)="onClick('10')">Oct({{exercice.annee}})</button>
+    <button nbButton outline status="info"size="tiny"(click)="onClick('11')">Nov({{exercice.annee}})</button>
+    <button nbButton outline status="info"size="tiny"(click)="onClick('12')">Déc({{exercice.annee}})</button>  
+  </nb-card-body>
+</div>
+ </nb-card>
+
+<nb-card  >
+  <nb-card-header class="text-center" i18n="@@listFolder"> 
+    <h4>
+    Journal fils
+    </h4>
+  </nb-card-header> 
+ 
+    <nb-card-body>
+      <ng2-smart-table #smartTable 
+      class="full-width" 
+      [settings]="settings" 
+      [source]="source" 
+      (deleteConfirm)="onDeleteConfirm($event)" 
+      (custom)="onCustom($event)">
+      </ng2-smart-table>
+  
+  </nb-card-body>
+
+</nb-card>

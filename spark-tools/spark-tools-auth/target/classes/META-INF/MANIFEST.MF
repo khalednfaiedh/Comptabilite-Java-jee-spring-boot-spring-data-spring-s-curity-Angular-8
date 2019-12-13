@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Implementation-Title: spark-tools-auth
+Implementation-Version: 0.0.1-SNAPSHOT
+Built-By: idea
+Implementation-Vendor-Id: com.spark.tools
+Build-Jdk: 1.8.0_222
+Implementation-URL: http://projects.spring.io/spring-boot/spark-tools/
+ spark-tools-auth/
+Created-By: Maven Integration for Eclipse
+Implementation-Vendor: Pivotal Software, Inc.
+

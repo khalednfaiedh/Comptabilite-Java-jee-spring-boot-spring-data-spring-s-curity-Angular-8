@@ -1,0 +1,42 @@
+ 
+<nb-card>
+
+  <nb-card-header  i18n="@@listFolder"> 
+      <button nbButton status="primary" (click)=onClick()> < </button>   
+      
+       
+          Entreprise:   &nbsp;&nbsp;{{entreprise.socialReason}}
+      
+          <button nbButton class="btn btn-hero-success input-group-text"   style="  margin: 0% 0% 0% 70%;" (click)=onClick2()> Journaux </button>  
+        <h4 class="text-center">
+            Exercice:   {{exercice.designation}}-{{exercice.annee}}&nbsp;&nbsp; /&nbsp;&nbsp; Journal:
+       
+  {{journal.designation}}-Mois:{{journal.mois}}({{exercice.annee}})
+    </h4>
+
+  
+  </nb-card-header> 
+</nb-card>
+
+  <nb-card  >
+  <nb-card-body>
+    <div class="addbtn">
+          <button (click)="addEcritures()" class="btn btn-hero-success input-group-text" i18n="@@ajoutDossier">Ajout   Ecriture</button>
+        </div>
+        <h4 class="text-center">  Mes Ecritures</h4>
+      </nb-card-body>
+    </nb-card> 
+
+    <nb-card  >
+    <nb-card-body>
+      <ng2-smart-table #smartTable 
+      class="full-width" 
+      [settings]="settings" 
+      [source]="source" 
+      (deleteConfirm)="onDeleteConfirm($event)" 
+      (custom)="onCustom($event)">
+      </ng2-smart-table>
+  
+  </nb-card-body>
+
+</nb-card>

@@ -1,0 +1,4 @@
+com/spark/tools/gateway/config/GatewayConfig.class
+com/spark/tools/gateway/config/ApplicationConfig.class
+com/spark/tools/gateway/Application.class
+com/spark/tools/gateway/config/ServiceDiscoveryConfig.class

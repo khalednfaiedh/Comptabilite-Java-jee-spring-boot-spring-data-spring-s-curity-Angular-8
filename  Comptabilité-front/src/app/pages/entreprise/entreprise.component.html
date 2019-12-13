@@ -1,0 +1,25 @@
+ 
+
+<nb-card>
+  <nb-card-body>
+  <div class="addbtn">
+        <button (click)="addDossier()" class="btn btn-hero-success input-group-text" i18n="@@ajoutDossier">Ajout Dossier</button>
+      </div>
+    </nb-card-body>
+</nb-card>
+<nb-card>
+      <nb-card-header class="text-center" i18n="@@listFolder"> 
+        <h4>
+          Mes dossiers
+        </h4>
+      </nb-card-header> 
+    <nb-card-body>
+        <ng2-smart-table #smartTable 
+        class="full-width" 
+        [settings]="settings" 
+        [source]="source" 
+        (deleteConfirm)="onDeleteConfirm($event)" 
+        (custom)="onCustom($event)">
+        </ng2-smart-table>
+    </nb-card-body>
+  </nb-card>

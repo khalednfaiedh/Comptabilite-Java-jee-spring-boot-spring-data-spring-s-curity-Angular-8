@@ -1,0 +1,419 @@
+<!-- <div class="col-md-12  " style="width:950px; height: 320px">
+  <nb-card>
+    <nb-card-body>
+      <form class="form-group" autocomplete="off" #monFormulaire1=ngForm>
+
+        <br>
+        <div class="row full-name-inputs label">
+          <div class="input-group col-md-3   input-group-sm">
+            <label for="matriCode">Numéro Ecriture</label>
+          </div>
+
+          <div class="input-group col-md-3   input-group-sm">
+            <label for="tradeCode"> Numéro Piece</label>
+          </div>
+          <div class="input-group col-md-3 input-group-sm">
+            <label for="jurform" i18n="@@jurform"> Date </label>
+          </div>
+          <div class="input-group col-md-3 input-group-sm">
+            <label for="nature" i18n="@@nature"> Libélle </label>
+          </div>
+        </div>
+
+        <div class="row full-name-inputs">
+
+
+          <div class="input-group col-md-3  input-group-sm">
+            <input type="number" name="numeroEcriture" [(ngModel)]="ecriture.numeroEcriture " class="form-control">
+          </div>
+
+          <div class="input-group col-md-3  input-group-sm">
+            <input type="number" name="numeroPiece" [(ngModel)]="ecriture.numeroPiece" class="form-control">
+          </div>
+
+          <div class="input-group col-md-3 col-lg-3 input-group-sm">
+            <input nbInput class="form-control" [nbDatepicker]="date" [(ngModel)]="ecriture.date" name="date"   />
+            <nb-datepicker #date></nb-datepicker>
+          </div>
+
+          <div class="input-group col-md-3   input-group-sm">
+            <input type="text" name="libelle" [(ngModel)]="ecriture.libelle" class="form-control" />
+          </div>
+
+        </div>
+        <br>
+
+        <div class="row full-name-inputs label">
+          
+          <div class="input-group col-md-3   input-group-sm">
+            <label for="tradeCode"> Compte Géneral</label>             
+          </div>
+
+          <div class="input-group col-md-3  input-group-sm">
+            <label for="matriCode">Compte Tiér</label>
+          </div>
+
+          <div class="input-group col-md-3  input-group-sm">
+            <label for="nature" i18n="@@nature"> Débit </label>
+          </div>
+
+
+          <div class="input-group col-md-3   input-group-sm"> 
+            <label for="nature" i18n="@@nature"> Crédit </label>
+          </div>
+
+        </div>
+ <br>
+ <table>
+    <tr *ngFor="let x of ecritures;let i = index;">
+      <td>
+        <div class="row full-name-inputs label">
+
+        
+          <div class=" col-md-3">
+         <div class="input-group input-group-sm">
+            <ng-select 
+            placeholder="Choisir..."
+            [items]="comptesGeneral"
+            bindLabel="codeCompte"
+            name = "CompteGeneral"
+            #Compte
+            [(ngModel)]="ecriture.compteGeneral"
+            
+            required 
+           >
+          </ng-select> 
+        </div>
+          <div  *ngIf="ecriture.compteGeneral">
+              name Compte: {{ecriture.compteGeneral.nameCompte}} 
+         </div>
+
+          </div>
+        
+        
+          <div class=" col-md-3">
+           <div class="input-group input-group-sm"> 
+                        <ng-select 
+            placeholder="Choisir..."
+            [items]="comptesTiers"
+            bindLabel="codeCompte"
+            name = "CompteTiers"
+            #Compte
+            [(ngModel)]="ecriture.compteTier"
+            style="width: 90%"
+           >
+          </ng-select>  
+          <span class="input-group-append">
+              <button (click)="openWindowCompteTiers()" class="btn btn-hero-primary input-group-text">
+                +
+              </button>
+              </span>
+        </div>
+
+        <div *ngIf="ecriture.compteTier">
+            name Compte: {{ecriture.compteTier.nameCompte}} 
+        </div>
+          </div>
+        
+         <div class="input-group col-md-3 ">
+            <div class="input-group-sm">
+            <input type="number" name="debit" [(ngModel)]="ecriture.debit"     class="form-control"   />
+          </div>
+          </div>
+         
+  
+          <div class="input-group col-md-3">
+              <div class="input-group-sm">
+            <input type="number" name="credit" [(ngModel)]="ecriture.credit" class="form-control"      />
+            </div>
+      
+          </div>
+         
+          
+      </div>   
+      <br><br> 
+    </td>
+    </tr>
+    </table> 
+        
+    
+ 
+        <br>
+        <div style="text-align:right;">
+          <button nbButton hero status="success" (click)="addEcriture()"
+            [disabled]=!monFormulaire1.valid>{{A}}</button>
+          <button nbButton hero status="warning" (click)="monFormulaire1.reset( );"
+            style="margin-left: 30px;">Réinitialiser</button>
+        </div>
+
+      </form>
+
+        <div *ngFor="let input of inputs; let i = index">
+    <input [placeholder]="'Input ' + i" type="number" #numInput (keydown)="numberInput($event, numInput.value)" >
+  </div> -->
+<!-- <input type="text" class="form-control" (input)="onSearchChange($event.target.value)"> 
+    <input type="text" [ngModel]="mymodel" (ngModelChange)="valuechange($event)" />
+{{mymodel}} -->
+
+<!-- <table>
+    <tr *ngFor="let x of names;let i = index;">
+      <td>{{ i+ 1 }}</td>
+      <td><input [(ngModel)]="names[i].Name">{{x.Name}}</td>
+    </tr>
+ </table>  
+
+    </nb-card-body>
+  </nb-card>
+</div>
+ -->
+ <nb-card>
+
+    <nb-card-header  i18n="@@listFolder"> 
+        <button nbButton status="primary" (click)=onClick()> < </button>  
+         
+            Entreprise:   &nbsp;&nbsp;{{entreprise.socialReason}}
+            <button nbButton class="btn btn-hero-success input-group-text"   style="  margin: 0% 0% 0% 70%;" (click)=onClick2()> Journaux </button>  
+      
+          <h4 class="text-center">
+              Exercice:   {{exercice.designation}}-{{exercice.annee}}&nbsp;&nbsp; /&nbsp;&nbsp; Journal:
+         
+    {{journal.designation}}-Mois:{{journal.mois}}({{exercice.annee}})
+      </h4>
+    </nb-card-header> 
+  </nb-card>
+ <nb-card>
+    <nb-card-body>
+  
+
+ <nb-card>
+    <nb-card-body>
+<div class="row full-name-inputs label" >
+    <div class="input-group col-md-4   input-group-sm">  <h3 > TOTAL DÉBIT:{{getTotalDebit()}} {{money}}</h3></div>
+    <div class="input-group col-md-4  input-group-sm"> <h3>TOTAL CRÉDIT:{{getTotalCredit()}} {{money}}</h3> </div>
+    <div class="input-group col-md-4   input-group-sm">  <h3>ÉCART:{{getEcartDebitCredit()}} {{money}}</h3></div>
+ 
+     <!-- <pre>{{orderForm.value.items | json }}</pre>  -->
+</div>
+    </nb-card-body>
+</nb-card>
+ 
+<!-- (ngSubmit)='submitForm(orderForm.value)' -->
+
+<div class="col-md-12  " style="width:400000px; height: 1000px">
+  <nb-card>
+    <nb-card-body>
+      <form [formGroup]='orderForm' #monFormulaire1=ngForm  > 
+ 
+        <br>
+        <div class="row full-name-inputs label">
+            
+         <div class="input-group col-md-10">
+            <div class="input-group col-md-3   input-group-sm">
+                <label for="tradeCode"> Numéro  Ecriture</label>
+              </div>
+          <div class="input-group col-md-3   input-group-sm">
+            <label for="tradeCode"> Numéro Piece</label>
+          </div>
+          <div class="input-group col-md-3 input-group-sm">
+            <label for="jurform" i18n="@@jurform"> Date </label>
+          </div>
+          <div class="input-group col-md-3 input-group-sm">
+            <label for="nature" i18n="@@nature"> Libélle </label>
+          </div>
+        </div>
+
+        </div>
+ 
+        <div class="row full-name-inputs">
+            
+      <div class="input-group col-md-10">
+           
+          <div class="input-group col-md-3  input-group-sm">
+              <input type="number"  name="numeroEcriture"  formControlName="numeroEcriture"      class="form-control" required> 
+            </div>  
+
+          <div class="input-group col-md-3  input-group-sm">
+            <input type="number"  name="numeroPiece"  formControlName="numeroPiece"       class="form-control" required> 
+          </div> 
+
+          <div class="input-group col-md-3 col-lg-3 input-group-sm">
+            <input nbInput class="form-control" [nbDatepicker]="date" formControlName="date"     name="date" />
+            <nb-datepicker #date></nb-datepicker> 
+          </div> 
+
+          <div class="input-group col-md-3   input-group-sm">
+              <input type="text" name="libelle" formControlName="libelle"   class="form-control" /> 
+          </div>
+    </div>   
+        </div>
+        <br>
+    
+       
+        <!-- <div formArrayName="items" *ngFor="let item of formData.controls; let i = index; let c = count">
+          <div class="line" [formGroupName]="i">
+           [textMask]="mask2"    -->
+  
+
+         
+            <div class="row full-name-inputs label">
+
+        
+             
+              <div class="input-group col-md-3   input-group-sm">
+                <label for="tradeCode">  <h5> Compte General</h5></label>
+              </div>
+                
+
+              <div class="input-group col-md-3  input-group-sm">
+                <label for="matriCode"><h5>Compte Tiers </h5></label>
+              </div>
+              
+              
+             
+              <div class="input-group col-md-3  input-group-sm">
+                <label for="nature" i18n="@@nature"> <h5>Débit </h5></label>
+              </div>
+           
+
+             <div class="input-group col-md-2   input-group-sm">
+                <label for="nature" i18n="@@nature"><h5> Crédit </h5></label>
+              </div>
+             
+            
+          </div>   
+            <br>
+ 
+ <div formArrayName="items" *ngFor="let item of formData.controls; let i = index; let c = count">
+    <div class="margin-botn" [formGroupName]="i">       
+            <div class="row full-name-inputs label">
+                <br>
+                  
+ 
+<!-- <pre>{{orderForm.value.items[i] | json }}</pre> -->
+
+          <div class=" col-md-3">
+            <div class="row full-name-inputs">
+                <div class="col-md-10">
+                   
+                   <ng-select placeholder="Choisir..."
+                   [items]="comptesGeneral" 
+                   bindLabel="nameCode" 
+                    
+                   [clearable] = false
+                   #Compte style="width: 100%"
+                  (change)="getNameCompteGeneral(i)"
+                  formControlName="compteGeneral"
+                   >
+                  </ng-select> 
+                  
+                </div>
+
+                <div class="col-md-1">
+                
+                </div>
+
+          </div>
+
+          </div>
+          <div class=" col-md-3">
+              <div class="row full-name-inputs">
+
+                <div class="col-md-8">
+                  <ng-select 
+                  placeholder="Choisir..."
+                  [items]="comptesTiers"
+                  bindLabel="nameCode"
+                  formControlName="compteTiers" 
+                  (focus)="refreshCompteTiers()"
+                  (change)="getNameCompteTiers(i)"  
+                  [clearable] = false
+                   #Compte style="width: 100%">
+                  </ng-select> 
+                </div>
+                   
+                <div    class=" col-md-1"  >
+                
+                   
+                                    </div>
+
+                   <span    class="input-group-append">
+                    <button (click)="openWindowCompteTiers()" class="btn btn-hero-primary input-group-text">
+                      +
+                    </button>
+                  </span> 
+                 
+                
+            
+      </div>   
+       </div>
+
+
+              <div class="input-group col-md-2 "  >
+                <div class="input-group-sm">
+                  <input  type="number"   name="debit"  onclick="this.select();"        formControlName="debit"  class="form-control" />
+                </div>
+              </div>
+              
+
+              <div class="input-group col-md-2"    >
+                <div class="input-group-sm">
+                  <input  type="number"   name="credit"  id="id" onclick="this.select();"       formControlName="credit"   class="form-control" />
+                </div>
+ 
+              </div>
+              
+              <div class="input-group col-md-1   input-group-sm">
+                  <button  nbButton status="info"      type="button" title="Supprimer la ligne" *ngIf="c > 1" (click)="deleteItemLine($event, i)">
+                       -</button>  
+                     
+                    
+                </div> 
+                <br><br>
+
+
+            </div>
+          </div>
+
+        </div>
+ 
+    
+
+   
+
+
+        <div class="btn" >
+          <button nbButton status="success"  [disabled]="!monFormulaire1.valid ||  validForm() "   (click)="submitForm(orderForm.value)"> {{A}}</button>&nbsp;
+          <button nbButton status="warning"  (click)="addItem($event)" > Ajouter  12 ligne </button>
+
+
+        </div>
+
+      </form>
+
+
+
+      <div>
+        
+        <!-- <button type="button" (click)="addItem($event)">Ajouter une ligne</button> -->
+      </div>
+
+      <!-- <div *ngFor="let input of inputs; let i = index">
+      <input [placeholder]="'Input ' + i" type="number" #numInput (keydown)="numberInput($event, numInput.value)" >
+    </div> -->
+      <!-- <input type="text" class="form-control" (input)="onSearchChange($event.target.value)"> 
+      <input type="text" [ngModel]="mymodel" (ngModelChange)="valuechange($event)" />
+  {{mymodel}} -->
+
+      <!-- <table>
+      <tr *ngFor="let x of names;let i = index;">
+        <td>{{ i+ 1 }}</td>
+        <td><input [(ngModel)]="names[i].Name">{{x.Name}}</td>
+      </tr>
+   </table>  -->
+
+    </nb-card-body>
+  </nb-card>
+</div>
+
+</nb-card-body> 
+</nb-card> 

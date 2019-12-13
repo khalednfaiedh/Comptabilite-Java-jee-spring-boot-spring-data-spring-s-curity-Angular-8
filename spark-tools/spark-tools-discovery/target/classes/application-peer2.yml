@@ -1,0 +1,14 @@
+## Server HTTP port.
+server.port: ${application.peer2.port}
+
+## Eureka discovery config
+eureka:
+  instance:
+    hostname: ${application.peer2.host}
+    appname: ${spring.application.name}
+    preferIpAddress: false
+  client:
+    serviceUrl:
+      defaultZone: http://discovery:discovery123@${application.peer1.host}:${application.peer1.port}/eureka
+    register-with-eureka: true
+    fetch-registry: true

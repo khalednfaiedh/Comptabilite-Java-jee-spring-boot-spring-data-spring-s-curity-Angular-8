@@ -1,0 +1,45 @@
+<div class="col-md-12  " style="width:950px; height: 400px" >
+  <form class="form-group" (ngSubmit)="addJournal()" autocomplete="off" #monFormulairej = ngForm>
+<nb-card>
+<nb-card-body>
+      <div class="row full-name-inputs label">
+          <div class="input-group col-md-3   input-group-sm">
+           <label class="text-label" for="jcode" i18n="@@jcode">Code</label> 
+            </div>
+          <div class="input-group col-md-5   input-group-sm">
+              <label class="text-label" for="jname" i18n="@@jname">Désignation</label>
+          </div>
+          <div class="input-group col-md-4   input-group-sm">
+              <label class="text-label" i18n="@@jtype">type</label>
+          </div>
+          </div>
+
+          <div class="row full-name-inputs">
+              <div class="input-group col-md-3   input-group-sm">
+                  <input type="text" #jcode name="jcode" [(ngModel)]="journal.code" class="form-control" required i18n="@@jcode" />
+                </div>
+              <div class="input-group col-md-5   input-group-sm">
+                  <input type="text" name="jname" #jname [(ngModel)]="journal.designation"   class="form-control" required i18n="@@jname" />
+              </div>
+              <div class="input-group col-md-4   input-group-sm">
+                <input type="text" name="type" #jname [(ngModel)]="journal.type" class="form-control" required i18n="@@jname" />
+              </div>
+              </div>
+             <div class="form-group">
+              <div class="row full-name-inputs">
+              <div class="input-group col-md-6 col-lg-6 input-group-sm">
+                  <label> Compte</label>  
+           </div>
+           </div>
+ 
+       
+       
+      </div>
+</nb-card-body>
+</nb-card>
+<div style="text-align:right;">
+<button nbButton hero status="success" type="submit"  [disabled]=!monFormulairej.valid >{{valider}}</button>
+<button nbButton hero status="warning" (click)=" monFormulairej.reset();" style="margin-left: 30px;">Réinitialiser</button>
+</div>
+  </form>
+</div>

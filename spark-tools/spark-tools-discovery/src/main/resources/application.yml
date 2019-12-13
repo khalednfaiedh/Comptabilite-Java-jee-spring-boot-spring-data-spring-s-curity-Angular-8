@@ -1,0 +1,31 @@
+## Application name.
+spring.application.name: discovery-server
+
+## Server HTTP port.
+server.port: 8761
+
+## active profile (get from maven build --> check pom.xml)
+spring.profiles.active: "@active.profile@"
+
+## Eureka discovery config
+eureka:
+  instance:
+    hostname: localhost
+    appname: ${spring.application.name}
+    prefer-ip-address: false
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+  server:
+    wait-time-in-ms-when-sync-empty: 0
+  
+    
+## Server HTTP security.
+security:
+  user:
+    name: ${DISCOVERY_USERNAME:discovery}
+    password: ${DISCOVERY_PASSWORD:discovery123}
+  admin:
+    name: ${DISCOVERY_ADMIN_USERNAME:admin}
+    password: ${DISCOVERY_ADMIN_PASSWORD:admin123}
+    

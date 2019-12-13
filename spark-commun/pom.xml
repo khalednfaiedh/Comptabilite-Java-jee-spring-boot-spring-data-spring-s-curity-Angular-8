@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<!-- ================================================================================ -->
+	<groupId>com.spark.commun</groupId>
+	<artifactId>spark-commun</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>spark-commun</name>
+	<packaging>pom</packaging>
+
+	<!-- ================================================================================ -->
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+
+		<java.version>1.8</java.version>
+		<maven-compiler-plugin.version>3.7.0</maven-compiler-plugin.version>
+
+		<mapstruct.version>1.3.0.Final</mapstruct.version>
+		<lombok.version>1.16.18</lombok.version>
+
+		<io.springfox.version>2.9.2</io.springfox.version>
+
+		<spring.boot.version>1.5.9.RELEASE</spring.boot.version>
+		<spring.cloud.version>Edgware.RELEASE</spring.cloud.version>
+		<spring-security-oauth.version>2.0.14.RELEASE</spring-security-oauth.version>
+		<spring-security-jwt.version>1.0.8.RELEASE</spring-security-jwt.version>
+
+		<com.spark.commun.version>0.0.1-SNAPSHOT</com.spark.commun.version>
+		<google.guava.version>20.0</google.guava.version>
+	</properties>
+
+	<!-- ================================================================================ -->
+	<build>
+
+		<finalName>${project.artifactId}</finalName>
+
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>${maven-compiler-plugin.version}</version>
+				<configuration>
+					<source>${java.version}</source>
+					<target>${java.version}</target>
+					<annotationProcessorPaths>
+						<path>
+							<groupId>org.mapstruct</groupId>
+							<artifactId>mapstruct-processor</artifactId>
+							<version>${mapstruct.version}</version>
+						</path>
+						<path>
+							<groupId>org.projectlombok</groupId>
+							<artifactId>lombok</artifactId>
+							<version>${lombok.version}</version>
+						</path>
+					</annotationProcessorPaths>
+
+					<compilerArgs>
+						<arg>-Amapstruct.suppressGeneratorTimestamp=true</arg>
+						<arg>-Amapstruct.defaultComponentModel=spring</arg>
+					</compilerArgs>
+				</configuration>
+			</plugin>
+		</plugins>
+		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
+				<filtering>true</filtering>
+				<includes>
+					<include>**/*</include>
+				</includes>
+			</resource>
+		</resources>
+	</build>
+
+	<!-- ================================================================================ -->
+	<dependencies>
+
+		<!-- Object mapper framework -->
+		<dependency>
+			<groupId>org.mapstruct</groupId>
+			<artifactId>mapstruct-jdk8</artifactId>
+			<version>${mapstruct.version}</version>
+		</dependency>
+
+		<!-- lombok framework -->
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<version>${lombok.version}</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+
+	<!-- ================================================================================ -->
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-dependencies</artifactId>
+				<version>${spring.boot.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework.cloud</groupId>
+				<artifactId>spring-cloud-dependencies</artifactId>
+				<version>${spring.cloud.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+			<dependency>
+				<groupId>com.google.guava</groupId>
+				<artifactId>guava</artifactId>
+				<version>${google.guava.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.spark.commun</groupId>
+				<artifactId>spark-commun-utility</artifactId>
+				<version>${com.spark.commun.version}</version>
+			</dependency>
+			
+			<dependency>
+				<groupId>com.spark.commun</groupId>
+				<artifactId>spark-commun-service-utility</artifactId>
+				<version>${com.spark.commun.version}</version>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
+	<!-- ================================================================================ -->
+	<profiles>
+		<profile>
+			<id>local</id>
+			<properties>
+				<active.profile>local</active.profile>
+			</properties>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+		</profile>
+		<profile>
+			<id>test</id>
+			<properties>
+				<active.profile>test</active.profile>
+			</properties>
+		</profile>
+		<profile>
+			<id>dev</id>
+			<properties>
+				<active.profile>dev</active.profile>
+			</properties>
+		</profile>
+		<profile>
+			<id>prod</id>
+			<properties>
+				<active.profile>prod</active.profile>
+			</properties>
+		</profile>
+	</profiles>
+
+
+	<!-- ================================================================================ -->
+	<modules>
+		<module>spark-commun-user</module>
+		<module>spark-commun-utility</module>
+		<module>spark-commun-service-utility</module>
+	</modules>
+
+</project>

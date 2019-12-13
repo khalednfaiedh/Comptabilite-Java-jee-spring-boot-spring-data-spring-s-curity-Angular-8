@@ -1,0 +1,113 @@
+<div class="col-md-12  " style="width:950px; height: 320px">
+  <nb-card>
+    <nb-card-body>
+      <form class="form-group" autocomplete="off" #monFormulaire1=ngForm>
+
+        <div class="row full-name-inputs label">
+
+          <div class="input-group col-md-5   input-group-sm">
+            <label class="text-label" for="socialReason">societé</label>
+          </div>
+
+          
+        </div>
+        <div class="row full-name-inputs">
+          <div class="input-group col-md-5  input-group-sm">
+            <input autofocus type="text" name="societé" #socialReason 
+            maxlength="50" class="form-control" required i18n="@@socialReason" [(ngModel)]="societe" disabled>
+          </div>
+
+          
+        </div>
+        <br>
+        <div class="row full-name-inputs label">
+          <div class="input-group col-md-3   input-group-sm">
+            <label for="matriCode">Désignation</label>
+          </div>
+
+          <div class="input-group col-md-4   input-group-sm">
+            <label for="tradeCode"> Editeur</label>
+          </div>
+          <div class="input-group col-md-5 input-group-sm">
+            <label for="jurform" i18n="@@jurform"> Année </label>
+          </div>
+        </div>
+
+        <div class="row full-name-inputs">
+
+
+            <div class="input-group col-md-3  input-group-sm">
+                <input type="text" name="designation" [(ngModel)]="excercie.designation " class="form-control" >
+              </div>
+ 
+              <div class="input-group col-md-4   input-group-sm">
+                  <input type="text" name="editeur"   [(ngModel)]="excercie.editeur" class="form-control">
+                </div>
+
+                 
+          <div class="input-group col-md-5 input-group-sm">
+              
+                 <ng-select   
+                 (click)="focusOutFunction()"
+                  placeholder="Choisir..."
+                  [items]="annee"
+                  name="annee"
+                   [disabled]="update" 
+                   
+                  [(ngModel)]="excercie.annee"
+                  class="anneeStyle">
+                </ng-select>      
+               
+                 <!-- <input type="text" name="editeur" [(ngModel)]="excercie.editeur" class="form-control"> 
+                -->
+               
+             
+          </div> 
+        </div>
+ 
+ <div  *ngIf="excercie.annee">
+        <div class="row full-name-inputs label">
+          <div class="input-group col-md-5  input-group-sm">
+            <label for="nature" i18n="@@nature">   Date Début    </label>
+          </div>
+
+          <div class="input-group col-md-3   input-group-sm">
+              <label for="nature" i18n="@@nature">   Date  Fin    </label>
+            </div>
+
+        </div>
+             
+       
+     <div class="row full-name-inputs label">
+             
+            <div class="input-group col-md-5 col-lg-5 input-group-sm">
+                <input nbInput  class="form-control"  value="bonjor" [nbDatepicker]="dateDebut"
+                    [(ngModel)]="excercie.dateDebut"  name="dateDebutt"  disabled/>
+                <nb-datepicker #dateDebut   ></nb-datepicker>
+          </div>  
+
+
+            <div class="input-group col-md-5 col-lg-5 input-group-sm">
+                <input nbInput  class="form-control" [nbDatepicker]="dateFin"  
+                    [(ngModel)]="excercie.dateFin" name="dateFinn" disabled />
+                <nb-datepicker #dateFin  ></nb-datepicker>
+          </div>
+ 
+     </div>  
+     
+    </div>
+       
+<br>
+  <div style="text-align:right;">
+      <button nbButton hero status="success" (click)="addExcercice()"
+        [disabled]=!monFormulaire1.valid>{{A}}</button>
+      <button nbButton hero status="warning" (click)="monFormulaire1.reset( );"
+        style="margin-left: 30px;">Réinitialiser</button>
+    </div>
+
+      </form>
+
+    </nb-card-body>
+  </nb-card>
+  
+</div>

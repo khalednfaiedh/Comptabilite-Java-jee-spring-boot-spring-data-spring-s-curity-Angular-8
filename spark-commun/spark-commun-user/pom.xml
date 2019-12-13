@@ -1,0 +1,62 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<!-- ================================================================================ -->
+	<artifactId>spark-commun-user</artifactId>
+	<name>spark-commun-user</name>
+	<packaging>jar</packaging>
+
+	<!-- ================================================================================ -->
+	<parent>
+		<groupId>com.spark.commun</groupId>
+		<artifactId>spark-commun</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+	</parent>
+
+	<!-- ================================================================================ -->
+	<properties>
+		<org.postgresql.version>9.4.1212</org.postgresql.version>
+		
+		<spring.boot.version>2.1.7.RELEASE</spring.boot.version>
+		<spring.cloud.version>Greenwich.SR3</spring.cloud.version>
+		<spring-security-oauth.version>2.3.5.RELEASE</spring-security-oauth.version>
+		<spring-security-jwt.version>1.0.10.RELEASE</spring-security-jwt.version>
+		
+	</properties>
+
+	<!-- ================================================================================ -->
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+				<version>${spring.boot.version}</version>
+			</plugin>
+		</plugins>
+	</build>
+
+	<!-- ================================================================================ -->
+	<dependencies>
+
+		<dependency>
+			<groupId>com.spark.commun</groupId>
+			<artifactId>spark-commun-service-utility</artifactId>
+			<version>${com.spark.commun.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jpa</artifactId>
+		</dependency>
+
+		<!-- Dependency for postgresql Java connector -->
+		<dependency>
+			<groupId>org.postgresql</groupId>
+			<artifactId>postgresql</artifactId>
+			<version>${org.postgresql.version}</version>
+		</dependency>
+
+	</dependencies>
+</project>

@@ -1,0 +1,73 @@
+<nb-card  >
+<nb-card-body  i18n="@@listFolder"> 
+  <button nbButton status="primary" (click)=onClick03()> <</button> &nbsp;
+  Entreprise:  &nbsp;{{entreprise.socialReason}}  
+    <ng-select placeholder="Choisir..."
+  [items]="exercices" 
+  bindLabel="designation" 
+  bindValue="id"
+  [clearable] = false
+  style="  margin: 0% 0% 0% 80%;" 
+ (change)="getGrandLivre(id)"
+ [(ngModel)]="id"
+  >
+ </ng-select>  
+<h4 class="text-center">
+    Exercice:   {{exercice.designation}}-{{exercice.annee}}
+</h4>
+</nb-card-body>
+</nb-card>
+<nb-card  > 
+    <nb-card-body *ngFor="let  plan of  plans;let j = index; let k = count" >
+     
+        <table class="table table-striped table-bordered ">
+            <thead>
+              <tr>
+                <th scope="col">Compte comptable</th>
+                <th scope="col">JRL</th>
+                <th scope="col">N°écriture/libellé</th>
+                <th scope="col">Date écriture</th>
+                <th scope="col">N°Pièce</th>
+                <th scope="col">Débit</th>
+                <th scope="col">Crédit</th>
+                <th scope="col">Cumulé</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let  operation of plan.operationEcritures; let i = index; let c = count" >
+                <td style="width: 25%" >{{plan.codeCompte}} :{{plan.nameCompte}} </td>
+                <td>{{operation.ecriture.journal.designation}}  </td>
+                <td>{{operation.ecriture.numeroEcriture}}-{{operation.ecriture.libelle}} </td>
+                <td>{{operation.ecriture.date}}</td>
+                <td>{{operation.ecriture.numeroPiece}}</td>
+                <td>{{operation.credit}}</td>
+                <td>{{operation.debit}}</td>
+               <td>{{operation.credit - operation.debit }}</td>
+
+               
+                 
+              </tr>
+            </tbody>
+
+              <tfoot style="background-color: goldenrod;">
+                  <td> TOTAUX : ({{plan.codeCompte}}) :{{plan.nameCompte}} - {{   getEtatCompte(j)}}</td>
+                  <td></td>
+                  <td></td>   
+                  <td></td>
+                  <td></td> 
+                  <td>{{ getTotolCredit(j)}}</td>     
+                  <td>{{ getTotolDebit(j)}}</td>
+                  <td>{{  getCumule(j) }}</td>
+
+
+              </tfoot>
+              
+          </table>
+
+          
+</nb-card-body>
+</nb-card>
+
+
+
+ 
