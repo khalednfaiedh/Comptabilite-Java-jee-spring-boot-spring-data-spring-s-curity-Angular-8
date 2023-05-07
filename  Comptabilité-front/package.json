@@ -81,7 +81,7 @@
     "rxjs-compat": "6.3.0",
     "socicon": "3.0.5",
     "text-mask-addons": "^3.8.0",
-    "tinymce": "4.5.7",
+    "tinymce": "5.10.7",
     "typeface-exo": "0.0.22",
     "web-animations-js": "2.2.5",
     "xlsx": "^0.15.3",
